@@ -50,15 +50,8 @@ function giveResults(){
             } 
         }
     } else if (setArr.length < repArr.length){
-        for(nums of repArr){
-            //if the working number of sets is less than 5, give full array
-            if(setArr.length<5){
-                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
-            // to keep the warm up weight more than 0
-            } else if (weightArr[nums]> 0){
-                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
-            } 
-        }
+        alert("The number of reps is less than sets. Support for this type coming soon.")
+        resetFields()
     } else {
         alert("The number of sets is less than reps per set. Support for this type coming soon.")
         resetFields()
