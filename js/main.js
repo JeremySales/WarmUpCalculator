@@ -33,17 +33,37 @@ function buildWarmUpArr(initWeight,WorkingSetReps,inc){
 
 function giveResults(){
     getWarmUp();
-    weightArr.unshift(workingSet);
-    for(nums of setArr){
-
-        //if the working number of sets is less than 5, give full array
-        if(setArr.length<5){
-            document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
-        // to keep the warm up weight more than 0
-        } else if (weightArr[nums]> 0){
-            document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
-        } 
+    if(workingSet === 0){
+        alert("Please enter a valid number")
+        resetFields()
     }
+    weightArr.unshift(workingSet);
+    if (setArr.length === repArr.length){
+        for(nums of setArr){
+
+            //if the working number of sets is less than 5, give full array
+            if(setArr.length<5){
+                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+            // to keep the warm up weight more than 0
+            } else if (weightArr[nums]> 0){
+                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+            } 
+        }
+    } else if (setArr.length < repArr.length){
+        for(nums of repArr){
+            //if the working number of sets is less than 5, give full array
+            if(setArr.length<5){
+                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+            // to keep the warm up weight more than 0
+            } else if (weightArr[nums]> 0){
+                document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+            } 
+        }
+    } else {
+        alert("The number of sets is less than reps per set. Support for this type coming soon.")
+        resetFields()
+    }
+    // adds the set amount to the working set
     document.querySelector(`#n0`).innerText += ` x ${setAmt}`
 }
 
@@ -61,9 +81,10 @@ function getWarmUp(){
     buildRepArr(setReps);
     buildWarmUpArr(workingSet,setAmt,incVal);
 }
-
+//reset all user input fields
 function resetFields(){
-    for(let i=0; i<=10; i++){
-        document.querySelector(`#n${i}`).innerText = ''
+    for(let i=0; i<10; i++){
+        document.querySelector(`#n${i}`).innerText = '';
     }
+    document.forms["userInput"].reset();
 }
