@@ -1,4 +1,5 @@
 document.querySelector('#btn').addEventListener('click', giveResults);
+document.querySelector('#resetBtn').addEventListener('click', resetFields);
     let setArr = [];
     let repArr = [];
     let weightArr = [];
@@ -43,6 +44,7 @@ function giveResults(){
             document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
         } 
     }
+    document.querySelector(`#n0`).innerText += ` x ${setAmt}`
 }
 
 function getWarmUp(){
@@ -58,4 +60,10 @@ function getWarmUp(){
     buildSetArr(setAmt);
     buildRepArr(setReps);
     buildWarmUpArr(workingSet,setAmt,incVal);
+}
+
+function resetFields(){
+    for(let i=0; i<=10; i++){
+        document.querySelector(`#n${i}`).innerText = ''
+    }
 }

@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
-    	<meta name="keywords" content="one, two, three">
+    	<meta name="description" content="Warm Up to your working set efficiently">
+    	<meta name="keywords" content="workout">
 
 		<title>Ocho's Warm Up Calculator</title>
 
@@ -16,7 +16,7 @@
 		<p>Enter the weight, number of sets, and reps of your working set</p>
 			<form>
 				<label for="workingWeight">Working Set Weight</label>
-				<input type="text" value="" name="workingWeight" id="workingSet">
+				<input type="number" value="" name="workingWeight" id="workingSet" min="0" max="2000">
 				<label for="numOfSets">Sets</label>
 				<select name="numOfSets" id="setsVal">
 					<option value="1">1</option>
@@ -45,23 +45,22 @@
 					<!-- <option value="kg">kg</option> -->
 				</select>
 			</form>
-			<h2 id="btn">GO</h2>
+			<h2 id="btn" class="btn">GO</h2>
+			<h2 id="resetBtn" class="btn">Reset</h2>
 		</section>
 		<section id="output">
-			<div id="n0"></div>
-			<div id="n1"></div>
-			<div id="n2"></div>
-			<div id="n3"></div>
-			<div id="n4"></div>
-			<div id="n5"></div>
-			<div id="n6"></div>
-			<div id="n7"></div>
-			<div id="n8"></div>
+			<h2>Do these Sets</h2>	
 			<div id="n9"></div>
+			<div id="n8"></div>
+			<div id="n7"></div>
+			<div id="n6"></div>
+			<div id="n5"></div>
+			<div id="n4"></div>
+			<div id="n3"></div>
+			<div id="n2"></div>
+			<div id="n1"></div>
+			<div id="n0"></div>
 		</section>
-		
-
-
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
