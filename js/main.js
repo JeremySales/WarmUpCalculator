@@ -8,6 +8,7 @@ document.querySelector('#resetBtn').addEventListener('click', resetFields);
     let setReps = Number(document.querySelector('#repsVal').value);
     let incVal = Number(document.querySelector('#incVal').value);
     let units = document.querySelector('#unit').value;
+    const checkBox = document.querySelector('.checkbox')
 
 //functions to build set and rep arrays
 function buildSetArr(n){
@@ -44,9 +45,11 @@ function giveResults(){
             //if the working number of sets is less than 5, give full array
             if(setArr.length<5){
                 document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+                document.querySelector(`#c${nums}`).removeAttribute('hidden')
             // to keep the warm up weight more than 0
             } else if (weightArr[nums]> 0){
                 document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
+                document.querySelector(`#c${nums}`).removeAttribute('hidden')
             } 
         }
     } else if (setArr.length < repArr.length){
@@ -78,6 +81,9 @@ function getWarmUp(){
 function resetFields(){
     for(let i=0; i<10; i++){
         document.querySelector(`#n${i}`).innerText = '';
+        document.querySelector(`#c${i}`).checked = false;
+        document.querySelector(`#c${i}`).setAttribute('hidden', true);
+        
     }
     document.forms["userInput"].reset();
 }
