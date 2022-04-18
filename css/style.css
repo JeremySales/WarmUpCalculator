@@ -22,6 +22,7 @@ body, form {
 body {
   background-color: rgb(128, 226, 221);
   font-family: 'Fira Sans', sans-serif;
+  background: url(/img/noise.png)
 }
 h1, h2 {
   font-weight: 800;
