@@ -16,7 +16,7 @@
 	<body>
 		<h1>WARM UP CALCULATOR</h1>
 		<p>Enter the weight, number of sets, and reps of your working set</p>
-			<form name="userInput">
+			<form name="userInput" action="javascript:void(0)">
 				<label for="workingWeight">Working Set Weight</label>
 				<input type="number" name="workingWeight" id="workingSet" min="0" max="2000">
 				<label for="numOfSets">Sets</label>
@@ -47,9 +47,11 @@
 					<!-- <option value="kg">kg</option> -->
 				</select>
 			</form>
-			<h2 id="btn" class="btn">GO</h2>
-			<h2 id="resetBtn" class="btn">Reset</h2>
-		</section>
+			<section class="btnContainer">
+				<h2 id="btn" class="btn">GO</h2>
+				<h2 id="resetBtn" class="btn">Reset</h2>
+			</section>
+		
 		<section id="output">
 			<h2>Do these Sets</h2>	
 			<div id="n9"></div><input type="checkbox" id="c9" hidden>
