@@ -46,12 +46,15 @@ function giveResults(){
             if(setArr.length<5){
                 document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
                 document.querySelector(`#c${nums}`).removeAttribute('hidden')
+                
             // to keep the warm up weight more than 0
             } else if (weightArr[nums]> 0){
                 document.querySelector(`#n${nums}`).innerText = `${weightArr[nums]} x ${repArr[nums]}`;
                 document.querySelector(`#c${nums}`).removeAttribute('hidden')
+                
             } 
         }
+        WorkingSetTracking()
     } else if (setArr.length < repArr.length){
         alert("The number of reps is less than sets. Support for this type coming soon.")
         resetFields()
@@ -61,6 +64,7 @@ function giveResults(){
     }
     // adds the set amount to the working set
     document.querySelector(`#n0`).innerText += ` x ${setAmt}`
+    document.querySelector("#c0").setAttribute('hidden', true)
 }
 
 function getWarmUp(){
@@ -82,10 +86,19 @@ function resetFields(){
     for(let i=0; i<10; i++){
         document.querySelector(`#n${i}`).innerText = '';
         document.querySelector(`#c${i}`).checked = false;
+        document.querySelector(`#cw${i}`).checked = false;
         document.querySelector(`#c${i}`).setAttribute('hidden', true);
-        
+        document.querySelector(`#cw${i}`).setAttribute('hidden', true);
+        document.querySelector(`#l${i}`).setAttribute('hidden', true);
     }
     document.forms["userInput"].reset();
+}
+
+function WorkingSetTracking(){
+    for(let i = 0; i<setAmt; i++){
+        document.querySelector(`#cw${i}`).removeAttribute('hidden')
+        document.querySelector(`#l${i}`).removeAttribute('hidden')
+    }
 }
 
 //API stuff goes down here
